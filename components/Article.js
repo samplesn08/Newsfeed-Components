@@ -137,4 +137,14 @@ function articleMaker(article){
   articleDiv.appendChild(p2);
   articleDiv.appendChild(p3);
   articleDiv.appendChild(button);
+
+  button.addEventListener("click", function() {
+    articleDiv.classList.toggle('article-open');
+  });
+
+  return articleDiv;
 }
+const articleSection = document.querySelector('.articles');
+data.forEach(articleMaker(item){
+  articleSection.appendChild(item);
+})
