@@ -86,6 +86,13 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'This is my new title!',
+    date: 'Feb 10th, 2021',
+    firstParagraph: `This is the first paragraph`,
+    secondParagraph: `This is the second one`,
+    thirdParagraph: `And this one is the third paragraph`
   }
 ];
 
@@ -114,6 +121,7 @@ const data = [
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
+
 function articleMaker(article){
   const articleDiv = document.createElement('div');
   articleDiv.classList.add('article');
@@ -137,14 +145,16 @@ function articleMaker(article){
   articleDiv.appendChild(p2);
   articleDiv.appendChild(p3);
   articleDiv.appendChild(button);
-
+  
   button.addEventListener("click", function() {
     articleDiv.classList.toggle('article-open');
   });
 
   return articleDiv;
 }
+
 const articleSection = document.querySelector('.articles');
-data.forEach(articleMaker(item){
-  articleSection.appendChild(item);
-})
+for (let i=0; i<data.length; i++) {
+  articleSection.appendChild(articleMaker(data[i]));
+}
+
